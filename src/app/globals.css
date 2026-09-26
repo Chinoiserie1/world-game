@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0d0c;
+  --panel: #121716;
+  --panel-2: #19201e;
+  --line: #26302d;
+  --ink: #f3efe6;
+  --muted: #8f9a95;
+  --pink: #ff2e7e;
+  --teal: #19d3a2;
+  --gold: #f5c542;
+  --danger: #ff4d4d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-pink: var(--pink);
+  --color-teal: var(--teal);
+  --color-gold: var(--gold);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+.grain {
+  background-image:
+    radial-gradient(circle at 20% -10%, rgba(255, 46, 126, 0.18), transparent 45%),
+    radial-gradient(circle at 110% 20%, rgba(25, 211, 162, 0.12), transparent 40%);
+}
+
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop { animation: pop 260ms ease-out both; }
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+.animate-shake { animation: shake 420ms both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop, .animate-shake { animation: none; }
+}
